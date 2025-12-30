@@ -7,19 +7,22 @@ from collections import deque
 
 
 class Queue:
-    """Basic Queue Implementation using List"""
+    """
+    Basic Queue Implementation using deque for O(1) operations.
+    Note: Using list with pop(0) would be O(n) for dequeue.
+    """
     
     def __init__(self):
-        self.items = []
+        self.items = deque()
     
     def enqueue(self, item):
         """Add an item to the rear of the queue."""
         self.items.append(item)
     
     def dequeue(self):
-        """Remove and return the front item from the queue."""
+        """Remove and return the front item from the queue. O(1) operation."""
         if not self.is_empty():
-            return self.items.pop(0)
+            return self.items.popleft()
         raise IndexError("dequeue from empty queue")
     
     def front(self):
@@ -37,7 +40,7 @@ class Queue:
         return len(self.items)
     
     def __str__(self):
-        return str(self.items)
+        return str(list(self.items))
 
 
 class CircularQueue:

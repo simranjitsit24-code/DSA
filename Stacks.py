@@ -135,10 +135,11 @@ def largest_rectangle_histogram(heights):
     """
     Find the largest rectangle in a histogram.
     Time: O(n), Space: O(n)
+    Note: Works with a copy to avoid modifying the input array.
     """
     stack = []
     max_area = 0
-    heights.append(0)
+    heights = heights + [0]  # Create a copy with sentinel value
     
     for i, h in enumerate(heights):
         while stack and heights[stack[-1]] > h:
@@ -147,7 +148,6 @@ def largest_rectangle_histogram(heights):
             max_area = max(max_area, heights[height_index] * width)
         stack.append(i)
     
-    heights.pop()
     return max_area
 
 
