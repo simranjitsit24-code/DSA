@@ -77,9 +77,12 @@ int main()
     LRUCache l1(2);
     l1.put(1,1);
     l1.put(2,2);
-    l1.get(1);
+    cout << "get(1): " << l1.get(1) << endl;
     l1.put(3,3);
-    l1.get(3);
+    cout << "get(2): " << l1.get(2) << endl;
     l1.put(4,4);
-    l1.get(1);
+    cout << "get(1): " << l1.get(1) << endl;
+    cout << "get(3): " << l1.get(3) << endl;
+    cout << "get(4): " << l1.get(4) << endl;
+    return 0;
 }
