@@ -8,13 +8,20 @@ public:
         int n = arr.size();
         for (int i=0;i<n;i++)
         {
-            int j = i+1;
+            int j = 0;
             int k= n-1;
             while (j<=k)
             {
                int mid = j+(k-j)/2;
-               if(arr[mid]==(2*arr[i])) return true;
-               else if (arr[mid]>(2*arr[i]))  k = mid-1;
+               if(arr[mid]==(2*arr[i])) 
+               {
+                 if (mid!=i) return true;
+                 else k = mid-1;
+               }
+               else if (arr[mid]>(2*arr[i]))  
+               {
+               k = mid-1;
+               }
                else j = mid+1;
             }
         }
