@@ -13,7 +13,6 @@ public:
     }
   if (num > INT_MAX || num < INT_MIN)
             return 0;
-
     return num;
     }
 };
