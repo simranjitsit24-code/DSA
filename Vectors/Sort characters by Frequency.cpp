@@ -34,3 +34,11 @@ public:
       return ans;
     }
 };
+int main()
+{
+    Solution sol;
+    string s = "tree";
+    string res = sol.frequencySort(s);
+    cout << "The sorted string by frequency is: " << res << endl;
+    return 0;
+}
