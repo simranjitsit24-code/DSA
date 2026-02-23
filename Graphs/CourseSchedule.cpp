@@ -30,15 +30,16 @@ public:
     }
     bool canFinish(int numCourses, vector<vector<int>>& edges) {
         int n = edges.size(); 
-        vector<bool> vis(n,false);
-          vector<bool> rec(n,false);
-        return !iscycle(edges,rec,vis,0);
+        if (edges.empty()) return true;
+        vector<bool> vis(numCourses,false);
+          vector<bool> rec(numCourses,false);
+        for (int i=0;i<numCourses;i++)
+        {
+            if (!vis[i])
+            {
+                if (iscycle(edges,rec,vis,i)) return false;
+            }
+        }
+        return true;
     }
 };
-int main()
-{
-    Solution s;
-    vector<vector<int>> edges = {{1,0},{0,1}};
-    cout << s.canFinish(2,edges);
-    return 0;
-}
